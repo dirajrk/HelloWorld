@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.net.Uri;
+import android.content.Intent;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -51,8 +53,10 @@ public class MainActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.github) {
+            Uri uri = Uri.parse("https://github.com/dirajrk"); // missing 'http://' will cause crashed
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
