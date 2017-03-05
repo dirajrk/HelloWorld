@@ -54,8 +54,13 @@ public class MainActivity extends AppCompatActivity{
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.github) {
-            Uri uri = Uri.parse("https://github.com/dirajrk"); // missing 'http://' will cause crashed
+            Uri uri = Uri.parse("https://github.com/dirajrk"); // missing 'https://' will crash the app
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
         }
 
